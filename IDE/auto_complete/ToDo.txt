@@ -1,0 +1,8 @@
+	-Get tab selecting Completion working
+	-Determine if cursor is between quotes
+	-Map Completer selection to its return values, parameters, and description
+	-Adjust Completion for preferential suggestions based on expected parameters
+	-Load user defined globals and scripts to available options
+	-House keeping, this is a bloody mess
+
+	-Color Code Completer popup items to match SyntaxHighlighter definitions

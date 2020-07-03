@@ -1,0 +1,70 @@
+
+QTextEdit
+{
+	background: #575E7A;
+	color: rgb(220,220,220);
+}
+
+QMainWindow
+{
+	background: #C7CEEA;
+	color: #C7CEEA;
+}
+
+QMenu
+{
+	background: #FFB7B2;
+}
+QMenu::item
+{
+	color: #333333;
+}
+QMenu::item:selected 
+{
+	color: #333333;
+    background: #ff9aa2;
+}
+
+QTreeWidget
+{
+	background-color: #575E7A;
+	color: rgb(220,220,220);
+}
+
+QTabBar::tab
+{
+	background-color: #474E6A;
+	color: rgb(220,220,220);
+}
+
+QTreeView
+{
+	background-color: #575E7A;
+	color: rgb(220,220,220);
+}
+
+QMenuBar
+{
+	background-color: #575E7A;
+	color: rgb(220,220,220);
+}
+QMenuBar::item:selected 
+{
+	color: rgb(0,0,0);
+    background: #FFB7B2;
+}
+
+QDockWidget
+{
+	border: 1px rgb(65,65,65);
+	background-color: #ffb7b2;
+	color: #333333;
+}
+QDockWidget::title {
+    text-align: left; /* align the text to the left */
+    background: #FFB7B2
+    padding-left: 5px;
+}
+QDockWidget::close-button, QDockWidget::float-button {
+    background: rgb(120,120,120);
+}

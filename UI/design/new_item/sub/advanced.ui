@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewProjectAdvancedDialog</class>
+ <widget class="QDialog" name="NewProjectAdvancedDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>416</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Advanced Project Settings</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="PrecompilerDirectives">
+     <property name="title">
+      <string>Precompiler Directives</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_5">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="ConsolidateScripts">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Consildate Scripts: This takes all scripts in the project, and condenses them into one file. The reason to do this is because halo can only compile 4 script files per scenario. By allowing Radium to manage your scripts, you can have your scripts spread across many files. This will help organize projects.&lt;/p&gt;&lt;p&gt;When using this feature you have to import the files in the order you would need. Example:&lt;/p&gt;&lt;p&gt;&amp;lt;import &amp;quot;/dualweild/dualweild_verify_count.hsc&amp;quot;&amp;gt;&lt;/p&gt;&lt;p&gt;This will import the contents of the file ABOVE the current script. Auto-complete will know to scan both of the files and populate function names and variables when typed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Consolidate Scripts</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="IntegrityCheck">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Integrity Check: Enabling this allows Radium to check the files in the project for errors. By letting the application catch the error before Sapien. We can add some debug checking:&lt;/p&gt;&lt;p&gt;Tag Refenced not Present in Scenario&lt;br/&gt;Illegal Parameter&lt;br/&gt;Assignment of Incompatible Types&lt;br/&gt;Use of Undefined Global&lt;br/&gt;Syntax Errors&lt;br/&gt;Unknown Function&lt;/p&gt;&lt;p&gt;After identifying an error. We can then display highlighting, and suggested fixes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Integrity Check</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="ResolveTagInfo">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Resolve Tag Information: This will allow Radium to load the tag data from the scenarios you import. You can then reference the tag's data in script. Radium will translate and insert the tag data as a parameter.&lt;/p&gt;&lt;p&gt;Example:&lt;/p&gt;&lt;p&gt;(script startup Example&lt;br/&gt;(sv_say &amp;lt;biped_array.Size&amp;gt;)&lt;br/&gt;)&lt;/p&gt;&lt;p&gt;By doing things this way it:&lt;br/&gt;Allows us to reduce &amp;quot;magic numbers&amp;quot; by relating objects to other objects in the scenario.&lt;br/&gt;Allows us to update any changes by recompiling&lt;br/&gt;Allows us to be able to generalize scripts.&lt;br/&gt;&lt;br/&gt;*NOTE* This only works for the initial state of the map.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Resolve Tag Info</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="ResolveExtTagInfo">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Resolve External Tag Info: (See Resolve Tag info)&lt;/p&gt;&lt;p&gt;This will allow you to import tags that aren't present in the map. You can then reference the tag data in the halo script editor by calling the '~' directive just like with &amp;quot;Resolve Tag Info&amp;quot;&lt;/p&gt;&lt;p&gt;To import an external tag the syntax is:&lt;br/&gt;&amp;lt;import &amp;quot;tags\Custom Scripting Strings\Dictionary.unicode_string_list&amp;quot;&amp;gt;&lt;/p&gt;&lt;p&gt;This will open a string list, and allow us to read from our dictionary without compiling the tag into the map.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Resolve External Tag Info</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="MultiplayerDesync">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;-still in development-&lt;/p&gt;&lt;p&gt;check the scripts contents and attempt to find if and where it would cause a server desync&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Multiplayer Desync Checker</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="AdvancedMathFunctions">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Advanced Math Functions: Enables higher level math implimentations&lt;/p&gt;&lt;p&gt;Sine&lt;br/&gt;Cosine&lt;br/&gt;Tangent&lt;br/&gt;Inverse Sine&lt;br/&gt;Inverse Cosine&lt;br/&gt;Inverse Tangent&lt;br/&gt;Vector Multiplication&lt;br/&gt;Vector Addition&lt;br/&gt;Degrees to Radians&lt;br/&gt;Radians to Degrees&lt;br/&gt;Modulo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Advanced Math Functions</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="AutoSave">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Auto Save</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="TimeBetweenLabel_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Time Between Saves (Mins)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="TimeBetweenSaves">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Time between auto saves</string>
+        </property>
+        <property name="whatsThis">
+         <string>Time between auto saves</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="SaveOnlyCurrent">
+        <property name="toolTip">
+         <string>When the application autosaves, it will only save the document you're currently editing</string>
+        </property>
+        <property name="whatsThis">
+         <string>When the application autosaves, it will only save the document you're currently editing</string>
+        </property>
+        <property name="text">
+         <string>Save Only Current Document</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="Backups_Layout">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Backups</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="TimeBetweenLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Time Between Backups (Mins)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="MaxBackupLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Maximum Backups Allowed for Project</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="BackupCount">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Determines how many backups the application will create.</string>
+        </property>
+        <property name="whatsThis">
+         <string>Determines how many backups the application will create.</string>
+        </property>
+        <property name="value">
+         <number>3</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="SaveOnBackup">
+        <property name="text">
+         <string>Save On Backup</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="BackupTime">
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Time between backups</string>
+        </property>
+        <property name="whatsThis">
+         <string>Time between backups</string>
+        </property>
+        <property name="value">
+         <number>60</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="DialogButtons">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>DialogButtons</sender>
+   <signal>accepted()</signal>
+   <receiver>NewProjectAdvancedDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DialogButtons</sender>
+   <signal>rejected()</signal>
+   <receiver>NewProjectAdvancedDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

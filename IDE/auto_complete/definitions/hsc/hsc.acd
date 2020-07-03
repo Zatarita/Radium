@@ -1,0 +1,115 @@
+KEYWRD : and ` begin ` begin_random ` cond ` global ` if ` inspect ` min ` max
+KEYWRD : not ` or ` script ` set ` sleep ` sleep_until ` wake ` thread_sleep
+DTATYP : void ` true ` false ` boolean ` real ` short ` long ` string ` trigger_volume ` cutscene_flag
+DTATYP : cutscene_camera_point ` cutscene_title ` cutscene_recording ` device_group ` ai
+DTATYP : ai_command_list ` starting_profile ` conversation ` navpoint ` hud_message
+DTATYP : object_list ` sound ` effect ` damage ` looping_sound ` animation_graph ` actor_variant
+DTATYP : damage_effect ` object_definition ` game_difficulty ` team ` ai_default_state ` actor_type
+DTATYP : hud_corner ` object ` unit ` vehicle ` weapon ` device ` scenery ` object_name ` unit_name
+DTATYP : vehicle_name ` weapon_name ` device_name ` scenery_name
+void : activate_nav_point_flag : string=<navpoint>, unit=<unit>, cutscene_flag=<cutscene_flag>, float=<vertical_offset> : Activates a nav point type <string> attached to (local) player <unit> anchored to a flag with a vertical offset <real>. If the player is not local to the machine, this will fail
+void : activate_nav_point_object : string=<navpoint>, unit=<unit>, object=<object>, float=<vertical_offset> : Activates a nav point type <string> attached to (local) player <unit> anchored to an object with a vertical offset <real>. If the player is not local to the machine, this will fail
+void : activate_team_nav_point_flag : string=<navpoint>, team=<team>, cutscene_flag=<cutscene_flag>, float=<vertical_offset> : Activates a nav point type <string> attached to a team anchored to a flag with a vertical offset <real>. If the player is not local to the machine, this will fail
+void : activate_team_nav_point_object : string=<navpoint>, team=<team>, object=<object>, float=<vertical_offset> : Activates a nav point type <string> attached to a team anchored to an object with a vertical offset <real>. If the player is not local to the machine, this will fail
+object_list=<AI_as_ObjectList> : ai_actors : ai=AI : converts an ai reference to an object list.
+void : ai_allegiance : team=<team>, team=<team> : Creates an allegiance between teams.
+boolean=<teams_have_betrayed> : ai_allegiance_broken : team=<team>, team=<team> : Returns whether two teams have an allegiance that is currently broken by traitorous behavior
+void : ai_allegiance_remove : team=<team>, team=<team> : Destroys an allegiance between two teams.
+void : ai_allow_charge : ai=<ai>, boolean=<can_charge> : Either enables or disables charging behavior for a group of actors
+void : ai_allow_dormant : ai=<ai>, boolean=<is_dormant> : Either enables or disables automatic dormancy for a group of actors
+void : ai_attach : unit=<unit>, ai=<ai> : Attaches the specified unit to the specified encounter.
+void : ai_attach_free : unit=<unit>, actor_variant=<actor_variant> : Attaches a unit to a newly created free actor of the specified type
+void : ai_attack : ai=<ai> : Makes the specified platoon(s) go into the attacking state.
+void : ai_automatic_migration_target : ai=<ai>, boolean=<can_be_targeted> : Enables or disables a squad as being an automatic migration target
+void : ai_berserk : ai=<ai>, boolean=<is_beserk> : Forces a group of actors to start or stop berserking
+void : ai_braindead : ai=<ai>, boolean=<is_braindead> : Makes a group of actors braindead, or restores them to life (in their initial state)
+void : ai_braindead_by_unit : object_list=<object_list>, boolean=<is_group_braindead> : Makes a list of objects braindead, or restores them to life. if you pass in a vehicle index, it makes all actors in that vehicle braindead (including any built-in guns)
+void : ai_command_list : ai=<ai>, ai_command_list=<ai_command_list> : Tells a group of actors to begin executing the specified command list
+void : ai_command_list_advance : ai=<ai> : Tells a group of actors that are running a command list that they may advance further along the list (if they are waiting for a stimulus)
+void : ai_command_list_advance_by_unit : unit=<unit> : tells a unit that is running a command list that it may advance further along the list (if they are waiting for a stimulus)
+void : ai_command_list_by_unit : unit=<unit>, ai_command_list=<ai_command_list> : Tells a named unit to begin executing the specified command list
+int=<command_list_status> : ai_command_list_status : object_list=<object_list> : gets the status of a number of units running command lists: 0 = none, 1 = finished command list, 2 = waiting for stimulus, 3 = running command list
+void : ai_conversation : conversation=<conversation> : Tries to add an entry to the list of conversations waiting to play. returns FALSE if the required units could not be found to play the conversation, or if the player is too far away and the 'delay' flag is not set.
+void : ai_conversation_advance : conversation=<conversation> : Tells a conversation that it may advance
+int=<current_conversation_line> : ai_conversation_line : conversation=<conversation> : Returns which line the conversation is currently playing, or 999 if the conversation is not currently playing
+int=<conversation_status> : ai_conversation_status : conversation=<conversation> : Returns the status of a conversation (0=none, 1=trying to begin, 2=waiting for guys to get in position, 3=playing, 4=waiting to advance, 5=could not begin, 6=finished successfully, 7=aborted midway
+void : ai_conversation_stop : conversation=<conversation> : Stops a conversation from playing or trying to play
+void : ai_debug_communication_focus : string_array=<strings> : Focuses (or stops focusing) a set of unit vocalization types.
+void : ai_debug_communication_ignore : string_array=<strings> : Ignores (or stops ignoring) a set of AI communication types when printing out communications.
+void : ai_debug_communication_suppress : string_array=<strings> : Suppresses (or stops suppressing) a set of AI communication types.
+void : ai_debug_sound_point_set : none : Drops the AI debugging sound point at the camera location.
+void : ai_debug_speak : string=<vocalization> : Makes the currently selected AI speak a vocalization.
+void : ai_debug_speak_list : string_array=<vocalizations> : Makes the currently selected AI speak a list of vocalizations.
+void : ai_debug_teleport_to : ai=<target> : Teleports all players to the specified encounter
+void : ai_debug_vocalize : string=<unknown>, string=<unknown> : Makes the selected AI vocalize #####!!!!!!!#######
+void : ai_defend : ai=<target> : Makes the specified platoon(s) go into the defending state.
+void : ai_deselect : none : Clears the selected encounter. 
+void : ai_detach : unit=<target> : Detaches the specified unit from all AI.
+void : ai_dialogue_triggers : boolean=<can_impromptu> : Turns impromptu dialogue on or off.
+void : ai_disregard : object_list=<target>, boolean=<will_disregard> : If TRUE, forces all actors to completely disregard the specified units, otherwise lets them acknowledge the units again
+void : ai_erase : ai=<target> : Erases the specified encounter and/or squad.
+void : ai_erase_all : none : Erases all AI.
+void : ai_exit_vehicle : ai=<target> : Tells a group of actors to get out of any vehicles that they are in
+void : ai_follow_distance : ai=<target>, float=<distance> : Sets the distance threshold which will cause squads to migrate when following someone
+void : ai_follow_target_ai : ai=<target>, ai=<follow_target> : Sets the follow target for an encounter to be a group of AI (encounter, squad or platoon)
+void : ai_follow_target_disable : ai=<target> : Turns off following for an encounter
+void : ai_follow_target_players : ai=<target> : Sets the follow target for an encounter to be the closest player
+void : ai_follow_target_unit : ai=<target>, unit=<follow_target> : Sets the follow target for an encounter to be a specific unit
+void : ai_force_active : ai=<target>, boolean=<stays_active> : Forces an encounter to remain active (i.e. not freeze in place) even if there are no players nearby
+void : ai_force_active_by_unit : unit=<target>, boolean=<stays_active> : Forces a named actor that is NOT in an encounter to remain active (i.e. not freeze in place) even if there are no players nearby
+void : ai_free : ai=<target> : Removes a group of actors from their encounter and sets them free
+void : ai_free_units : object_list=<target> : Removes a set of units from their encounter (if any) and sets them free
+void : ai_go_to_vehicle : ai=<target>, unit=<vehicle>, string=<seat> : Tells a group of actors to get into a vehicle, in the substring-specified seats (e.g. passenger for pelican)... does not interrupt any actors who are already going to vehicles
+void : ai_go_to_vehicle_override : ai=target, unit=<vehicle>, string=<seat> : Tells a group of actors to get into a vehicle, in the substring-specified seats (e.g. passenger for pelican)... NB: any actors who are already going to vehicles will stop and go to this one instead!
+int=<actor_count> : ai_going_to_vehicle : unit=<vehicle> : Return the number of actors that are still trying to get into the specified vehicle
+void : ai_grenades : boolean=<grenades_active> : Turns grenade inventory on or off.
+boolean=<is_attacking> : ai_is_attacking : ai=<target> : Returns whether a platoon is in the attacking mode (or if an encounter is specified, returns whether any platoon in that encounter is attacking)
+void : ai_kill : ai=<target> : Instantly kills the specified encounter and/or squad.
+void : ai_kill_silent : ai=<target> : Instantly and silently (no animation or sound played) kills the specified encounter and/or squad.
+void : ai_lines : none : Cycles through AI line-spray modes 
+void : ai_link_activation : ai=<target>, ai=<link_target> : Links the first encounter so that it will be made active whenever it detects that the second encounter is active
+int=<alive_count> : ai_living_count : ai=<target> : Return the number of living actors in the specified encounter and/or squad.
+float=<alive_percent> : ai_living_fraction : ai=<target> : Return the fraction [0-1] of living actors in the specified encounter and/or squad.
+void : ai_look_at_object : unit=<target>, object=<look_target> : Tells an actor to look at an object until further notice
+void : ai_magically_see_encounter : ai=<target>, ai=<target_encounter> : Takes one encounter magically aware of another.
+void : ai_magically_see_players : ai=<target> : Makes an encounter magically aware of nearby players.
+void : ai_magically_see_unit : ai=<target>, unit=<aware_target> : Makes an encounter magically aware of the specified unit.
+void : ai_maneuver : ai=<target> : Makes all squads in the specified platoon(s) maneuver to their designated maneuver squads.
+void : ai_maneuver_enable : ai=<target>, boolean=<can_maneuver> : Enables or disables the maneuver/retreat rule for an encounter or platoon. the rule will still trigger, but none of the actors will be given the order to change squads.
+void : ai_migrate : ai=<target>, ai=<migration_target> : Makes all or part of an encounter move to another encounter.
+void : ai_migrate_and_speak : ai=<target>, ai=<migration_target>, string={"Advance" | "Retreat"} : Makes all or part of an encounter move to another encounter, and say their 'advance' or 'retreat' speech lines.
+void : ai_migrate_by_unit : object_list=<target>, ai=<target_encounter> : Makes a named vehicle or group of units move to another encounter.
+int=<nonswarm_count> : ai_nonswarm_count : ai=<target> : Return the number of non-swarm actors in the specified encounter and/or squad.
+void : ai_place : ai=<target> : Places the specified encounter on the map.
+void : ai_playfight : ai=<target>, boolean=<can_playfight> : Sets an encounter to be playfighting or not
+void : ai_prefer_target : object_list=<target>, boolean=<preference_target> : If TRUE, *ALL* enemies will prefer to attack the specified units. if FALSE, removes the preference.
+void : ai_reconnect : none : Reconnects all AI information to the current structure bsp (use this after you create encounters or command lists in sapien, or place new firing points or command list points) 
+void : ai_renew : ai=<target> : Refreshes the health and grenade count of a group of actors, so they are as good as new
+void : ai_retreat : ai=<target> : Makes all squads in the specified platoon(s) maneuver to their designated maneuver squads.
+void : ai_select : ai=<target> : Selects the specified encounter.
+void : ai_set_blind : ai=<target>, boolean=<is_blind> : Enables or disables sight for actors in the specified encounter.
+void : ai_set_current_state : ai=<target>, ai_default_state=<target_default_state> : Sets the current state of a group of actors. WARNING: may have unpredictable results on actors that are in combat
+void : ai_set_deaf : ai=<target>, boolean=<is_deaf> : Enables or disables hearing for actors in the specified encounter.
+void : ai_set_respawn : ai=<target>, boolean=<can_respawn> : Enables or disables respawning in the specified encounter. s
+void : ai_set_return_state : ai=<target>, default_ai_state=<target_default_state> : Sets the state that a group of actors will return to when they have nothing to do
+void : ai_set_team : ai=<target>, team=<team_index> : Makes an encounter change to a new team
+void : ai_spawn_actor : ai=<target> : Spawns a single actor in the specified encounter and/or squad.
+int=<combat_status> : ai_status : ai=<target> : Returns the most severe combat status of a group of actors (0=inactive, 1=noncombat, 2=guarding, 3=search/suspicious, 4=definite enemy(heard or magic awareness), 5=visible enemy, 6=engaging in combat.
+void : ai_stop_looking : unit=<target> : Tells an actor to stop looking at whatever it's looking at
+float=<strength> : ai_strength : ai=<target> : Return the current strength (average body vitality from 0-1) of the specified encounter and/or squad.
+int=<swarm_count> : ai_swarm_count : ai=<target> : Return the number of swarm actors in the specified encounter and/or squad.
+void : ai_teleport_to_starting_location : ai=<target> : Teleports a group of actors to the starting locations of their current squad(s)
+void : ai_teleport_to_starting_location_if_unsupported : ai=<target> : Teleports a group of actors to the starting locations of their current squad(s), only if they are not supported by solid ground (i.e. if they are falling after switching BSPs)
+void : ai_try_to_fight_nothing : ai=<target> : Removes the preferential target setting from a group of actors
+void : ai_try_to_fight : ai=<target>, ai=<preference_target> : Causes a group of actors to preferentially target another group of actors
+void : ai_try_to_fight_player : ai=<target> : Causes a group of actors to preferentially target the player
+void : ai_vehicle_encounter : unit=target>, ai=<owners> : Sets a vehicle to 'belong' to a particular encounter/squad. any actors who get into the vehicle will be placed in this squad. NB: vehicles potentially drivable by multiple teams need their own encounter!
+void : ai_vehicle_enterable_actor_type : unit=<target>, actor_type=<actor_type> : Sets a vehicle as being impulsively enterable for actors of a certain type (grunt, elite, marine etc)
+void : ai_vehicle_enterable_actors : unit=<target>, ai=<target_ai> : Sets a vehicle as being impulsively enterable for a certain encounter/squad of actors
+void : ai_vehicle_enterable_disable : unit=<target> : Disables actors from impulsively getting into a vehicle (this is the default state for newly placed vehicles) x
+void : ai_vehicle_enterable_distance : unit=<target>, float=<distance> : Sets a vehicle as being impulsively enterable for actors within a certain distance
+void : ai_vehicle_enterable_team : unit=<target>, team=<team_index> : Sets a vehicle as being impulsively enterable for actors on a certain team
+void : attract_mode_start : none : N/A in pc
+void : bind : string=<>, string=<>, string=<> : Binds an input device/button combination to a game control
+void : breakable_surfaces_enable : boolean=<can_breakable_surface> : Enables or disables breakability of all breakable surfaces on level
+void : breakable_surfaces_reset : none : Restores all breakable surfaces

@@ -1,0 +1,5 @@
+QTextEdit
+{
+    background: #666666;
+    color: #eeeeee
+}

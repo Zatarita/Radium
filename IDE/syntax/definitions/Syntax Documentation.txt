@@ -1,0 +1,25 @@
+The definition files inside your IDE/Syntax/Definitions directory determine how the syntax gets highlighed for the corrosponding file extension. If you wanted to define a new type, you have to create a new directory inside your definitions folder with the folder name as the file extension you wish to define. Inside that directory you must have a text document with the same name saved as a .def
+
+eg IDE/Syntax/Definitions/hsc/hsc.def
+			 ^   ^
+   IDE/Syntax/Definitions/lua/lua.def
+   IDE/Syntax/Definitions/py/py.def
+...
+
+The definition file is paired up as ColorGroup, Identifier
+
+The Color group's first 3 arguments determine the RGB value. The last element determines if bold (1), or italic (2). Every identifier in the list that comes on the next line will fall into the color group defined above. You can have as many color groups as you like, and you can define as many identifiers as you like.
+
+[208, 164, 235, 1]							(ColorGroup, bold)
+["startup", "dormant", "continuous", "static", "stub"]			(Identifier)
+[150, 150, 150, 2]							(ColorGroup, italic)
+["and", "begin", "begin_random", "cond", "global", "if"]
+[240, 180, 108, 0]
+["void", "true", "false", "boolean", "real"]
+...
+
+$ is an escape character for special values.
+
+[54, 235, 235, 0]
+["$+", "$-", "$/", "$=", "$!=", "$>", "$<", "$>=", "$<="]
+

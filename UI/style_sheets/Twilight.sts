@@ -1,0 +1,58 @@
+QMainWindow
+{
+	background: rgb(80,80,85);
+}
+
+QTextEdit
+{
+	background-color: rgb(50,50,50);
+	color: rgb(220,220,220);
+}
+
+QMenu
+{
+	background: rgb(65,65,65);
+}
+QMenu::item
+{
+	color: rgb(220,220,220);
+}
+QMenu::item:selected 
+{
+	color: rgb(220,220,220);
+    background: #a8a8a8;
+}
+
+
+
+QMenuBar
+{
+	background-color: rgb(65,65,65);
+	color: rgb(220,220,220);
+}
+QMenuBar::item:selected 
+{
+	color: rgb(220,220,220);
+    background: #a8a8a8;
+}
+
+QWidget
+{
+	background-color: rgb(65,65,65);
+	color: rgb(220,220,220);
+}
+
+QDockWidget
+{
+	border: 1px rgb(65,65,65);
+	background-color: rgb(65,65,65);
+	color: rgb(220,220,220);
+}
+QDockWidget::title {
+    text-align: left; /* align the text to the left */
+    background: rgb(50,50,50);
+    padding-left: 5px;
+}
+QDockWidget::close-button, QDockWidget::float-button {
+    background: rgb(120,120,120);
+}

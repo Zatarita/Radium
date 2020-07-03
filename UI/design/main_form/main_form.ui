@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainForm</class>
+ <widget class="QMainWindow" name="MainForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>844</width>
+    <height>622</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Radium 0.0.0</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="TabCanvas">
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="Home">
+       <attribute name="title">
+        <string>Home</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="HOME_TEXT">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radium v0.0.0&lt;/p&gt;&lt;p&gt;- Currently Under Development -&lt;/p&gt;&lt;p&gt;* To - Do *&lt;/p&gt;&lt;p&gt;Finish project loading, and parse scenario data&lt;/p&gt;&lt;p&gt;New project dialog&lt;br/&gt;Create project&lt;br/&gt;Create empty project&lt;br/&gt;Create scripting project&lt;/p&gt;&lt;p&gt;Populate the project tree&lt;br/&gt;populate the tags tree&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>844</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="file_menu">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="file_new"/>
+    <addaction name="file_open"/>
+    <addaction name="file_open_project"/>
+    <addaction name="separator"/>
+    <addaction name="file_save"/>
+    <addaction name="file_save_as"/>
+    <addaction name="file_save_all"/>
+    <addaction name="separator"/>
+    <addaction name="file_update"/>
+    <addaction name="separator"/>
+    <addaction name="file_quit"/>
+   </widget>
+   <widget class="QMenu" name="edit_menu">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="edit_undo"/>
+    <addaction name="edit_redo"/>
+    <addaction name="separator"/>
+    <addaction name="edit_cut"/>
+    <addaction name="edit_copy"/>
+    <addaction name="edit_paste"/>
+    <addaction name="edit_delete"/>
+    <addaction name="separator"/>
+    <addaction name="edit_settings"/>
+   </widget>
+   <widget class="QMenu" name="project_menu">
+    <property name="title">
+     <string>Project</string>
+    </property>
+    <widget class="QMenu" name="project_menu_build">
+     <property name="title">
+      <string>Build</string>
+     </property>
+     <addaction name="project_build_scripts"/>
+     <addaction name="project_build_map"/>
+     <addaction name="separator"/>
+     <addaction name="project_compile_build"/>
+    </widget>
+    <widget class="QMenu" name="menuImport">
+     <property name="title">
+      <string>Import</string>
+     </property>
+     <addaction name="project_import_recorded_animation"/>
+     <addaction name="project_import_script"/>
+    </widget>
+    <widget class="QMenu" name="menuExport">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <widget class="QMenu" name="menuRecorded_Animations">
+      <property name="title">
+       <string>Recorded Animations</string>
+      </property>
+      <addaction name="actionSelected_2"/>
+      <addaction name="actionFocused_Scenario_2"/>
+      <addaction name="actionAll_4"/>
+      <addaction name="separator"/>
+      <addaction name="actionControl_V0"/>
+      <addaction name="actionAll_Control_V3"/>
+      <addaction name="actionAll_Control_V4"/>
+     </widget>
+     <widget class="QMenu" name="menuScripts">
+      <property name="title">
+       <string>Scripts</string>
+      </property>
+      <addaction name="actionSelected_3"/>
+      <addaction name="actionFocused_Scenario_3"/>
+      <addaction name="actionAll_5"/>
+      <addaction name="separator"/>
+      <addaction name="actionGobals_Only"/>
+      <addaction name="actionFunctions_Only"/>
+      <addaction name="separator"/>
+      <addaction name="actionConsolidate_and_Save"/>
+     </widget>
+     <addaction name="menuRecorded_Animations"/>
+     <addaction name="menuScripts"/>
+    </widget>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="project_new_recorded_animation"/>
+     <addaction name="project_new_script"/>
+    </widget>
+    <addaction name="menuNew"/>
+    <addaction name="separator"/>
+    <addaction name="project_menu_build"/>
+    <addaction name="menuImport"/>
+    <addaction name="menuExport"/>
+    <addaction name="separator"/>
+    <addaction name="project_bind_scenario"/>
+    <addaction name="project_remove_scenario"/>
+    <addaction name="separator"/>
+    <addaction name="project_settings"/>
+   </widget>
+   <widget class="QMenu" name="view_menu">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuHighlighting">
+     <property name="title">
+      <string>Highlighting</string>
+     </property>
+     <addaction name="HighlightingHsc"/>
+     <addaction name="HighlightingLua"/>
+     <addaction name="HighlightingSapp"/>
+    </widget>
+    <addaction name="view_menu_output"/>
+    <addaction name="view_menu_project"/>
+    <addaction name="view_menu_tags"/>
+    <addaction name="actionCurrent_Parameters"/>
+    <addaction name="separator"/>
+    <addaction name="menuHighlighting"/>
+   </widget>
+   <widget class="QMenu" name="help_menu">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="help"/>
+    <addaction name="help_about"/>
+    <addaction name="separator"/>
+    <addaction name="help_submit_bug"/>
+   </widget>
+   <addaction name="file_menu"/>
+   <addaction name="edit_menu"/>
+   <addaction name="project_menu"/>
+   <addaction name="view_menu"/>
+   <addaction name="help_menu"/>
+  </widget>
+  <widget class="QDockWidget" name="TagsWidget">
+   <property name="minimumSize">
+    <size>
+     <width>89</width>
+     <height>111</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Tag Data</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="TagsWidget_Layout">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QTreeView" name="ScenarioTags"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="ProjectWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>89</width>
+     <height>111</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Project</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="ProjectWidget_Layout">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QTreeView" name="ProjectContents">
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::EditKeyPressed</set>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="OutputWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>113</width>
+     <height>138</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string>Output</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="OutputWidget_Layout">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTextEdit" name="TextOut">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Welcome to Radium!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="Progress">
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="format">
+        <string>%p%</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="GlobalsWidget">
+   <property name="windowTitle">
+    <string>Globals</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QComboBox" name="GlobalsScope"/>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="Globals">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <attribute name="headerDefaultSectionSize">
+        <number>75</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Value</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="ScriptsWidget">
+   <property name="windowTitle">
+    <string>Scripts</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QComboBox" name="ScriptScope"/>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="ScriptView">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="indentation">
+        <number>0</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="headerDefaultSectionSize">
+        <number>75</number>
+       </attribute>
+       <attribute name="headerShowSortIndicator" stdset="0">
+        <bool>true</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Return</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="view_menu_output">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Output</string>
+   </property>
+  </action>
+  <action name="view_menu_project">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Project</string>
+   </property>
+  </action>
+  <action name="view_menu_tags">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Tags</string>
+   </property>
+  </action>
+  <action name="view_menu_timeline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Timeline</string>
+   </property>
+  </action>
+  <action name="actionCurrent_Parameters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Current Parameters</string>
+   </property>
+  </action>
+  <action name="file_new">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="file_open">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="file_save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="file_save_as">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="project_build_scripts">
+   <property name="text">
+    <string>Compile Scripts</string>
+   </property>
+  </action>
+  <action name="project_build_map">
+   <property name="text">
+    <string>Build Cache File</string>
+   </property>
+  </action>
+  <action name="actionTool_Function">
+   <property name="text">
+    <string>Tool Function</string>
+   </property>
+  </action>
+  <action name="project_compile_build">
+   <property name="text">
+    <string>Compile And Build</string>
+   </property>
+  </action>
+  <action name="project_import_recorded_animation">
+   <property name="text">
+    <string>Recorded Animation</string>
+   </property>
+  </action>
+  <action name="project_import_script">
+   <property name="text">
+    <string>Script</string>
+   </property>
+  </action>
+  <action name="actionRecorded_Animation_2">
+   <property name="text">
+    <string>Recorded Animation</string>
+   </property>
+  </action>
+  <action name="actionScript_2">
+   <property name="text">
+    <string>Script</string>
+   </property>
+  </action>
+  <action name="actionRecorded_Animations">
+   <property name="text">
+    <string>Recorded Animations</string>
+   </property>
+  </action>
+  <action name="actionScripts">
+   <property name="text">
+    <string>Scripts</string>
+   </property>
+  </action>
+  <action name="actionAll">
+   <property name="text">
+    <string>Recorded</string>
+   </property>
+  </action>
+  <action name="actionAll_2">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="actionFocused_Scenario">
+   <property name="text">
+    <string>Focused Scenario</string>
+   </property>
+  </action>
+  <action name="actionSelected_Scenario">
+   <property name="text">
+    <string>Selected Scenario</string>
+   </property>
+  </action>
+  <action name="actionRecorded_Animations_3">
+   <property name="text">
+    <string>Recorded Animations</string>
+   </property>
+  </action>
+  <action name="actionAll_3">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="actionSelected_2">
+   <property name="text">
+    <string>Selected</string>
+   </property>
+  </action>
+  <action name="actionFocused_Scenario_2">
+   <property name="text">
+    <string>Focused Scenario</string>
+   </property>
+  </action>
+  <action name="actionAll_4">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="actionSelected_3">
+   <property name="text">
+    <string>Selected</string>
+   </property>
+  </action>
+  <action name="actionFocused_Scenario_3">
+   <property name="text">
+    <string>Focused Scenario</string>
+   </property>
+  </action>
+  <action name="actionAll_5">
+   <property name="text">
+    <string>All</string>
+   </property>
+  </action>
+  <action name="actionConsolidate_and_Save">
+   <property name="text">
+    <string>Consolidated</string>
+   </property>
+  </action>
+  <action name="actionGobals_Only">
+   <property name="text">
+    <string>Gobals Only</string>
+   </property>
+  </action>
+  <action name="actionFunctions_Only">
+   <property name="text">
+    <string>Functions Only</string>
+   </property>
+  </action>
+  <action name="actionControl_V0">
+   <property name="text">
+    <string>All Control V0</string>
+   </property>
+  </action>
+  <action name="actionAll_Control_V1">
+   <property name="text">
+    <string>All Control V1</string>
+   </property>
+  </action>
+  <action name="actionAll_Control_V3">
+   <property name="text">
+    <string>All Control V3</string>
+   </property>
+  </action>
+  <action name="actionAll_Control_V4">
+   <property name="text">
+    <string>All Control V4</string>
+   </property>
+  </action>
+  <action name="project_bind_scenario">
+   <property name="text">
+    <string>Bind Scenario</string>
+   </property>
+  </action>
+  <action name="project_remove_scenario">
+   <property name="text">
+    <string>Remove Scenario</string>
+   </property>
+  </action>
+  <action name="project_settings">
+   <property name="text">
+    <string>Project Settings</string>
+   </property>
+  </action>
+  <action name="help">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="help_about">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="help_submit_bug">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Submit a Bug</string>
+   </property>
+  </action>
+  <action name="edit_undo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="edit_redo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="edit_cut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="edit_copy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="edit_paste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="edit_delete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="edit_settings">
+   <property name="text">
+    <string>Radium Settings</string>
+   </property>
+  </action>
+  <action name="file_update">
+   <property name="text">
+    <string>Check for Updates</string>
+   </property>
+  </action>
+  <action name="file_quit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="file_save_all">
+   <property name="text">
+    <string>Save All</string>
+   </property>
+  </action>
+  <action name="file_open_project">
+   <property name="text">
+    <string>Open Project</string>
+   </property>
+  </action>
+  <action name="project_new_recorded_animation">
+   <property name="text">
+    <string>Recorded Animation</string>
+   </property>
+  </action>
+  <action name="project_new_script">
+   <property name="text">
+    <string>Script</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Tab</string>
+   </property>
+  </action>
+  <action name="HighlightingHsc">
+   <property name="text">
+    <string>hsc</string>
+   </property>
+  </action>
+  <action name="HighlightingLua">
+   <property name="text">
+    <string>lua</string>
+   </property>
+  </action>
+  <action name="HighlightingSapp">
+   <property name="text">
+    <string>sapp</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>ProjectWidget</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>view_menu_project</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>view_menu_project</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>ProjectWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>594</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OutputWidget</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>view_menu_output</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>420</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>view_menu_output</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>OutputWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>420</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TagsWidget</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>view_menu_tags</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>view_menu_tags</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>TagsWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>136</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

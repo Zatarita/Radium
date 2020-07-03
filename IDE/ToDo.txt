@@ -1,0 +1,19 @@
+	-Finish AutoComplete
+	-AutoSave
+	-AutoBackup
+	-Editor properties
+		-Themes
+		-Syntax Highlight Colors
+		-AutoComplete definitions
+		-Advanced settings
+	-Edit Menu
+	-Parse script data from scenario
+	-Populate script data in dock widgets
+	-Look into hooking sapiens script compile functions
+	-Script Consolidation
+	-Error Checking
+	-Tag Reference Resolution
+
+
+	-Create a couple default themes
+	-Write theme documentation
