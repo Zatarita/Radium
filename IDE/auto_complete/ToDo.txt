@@ -6,3 +6,5 @@
 	-House keeping, this is a bloody mess
 
 	-Color Code Completer popup items to match SyntaxHighlighter definitions
+	
+	-Complete the dictionary for hsc, lua, and sapp
