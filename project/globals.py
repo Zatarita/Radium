@@ -32,7 +32,7 @@ class RadiumGlobals:
 
     def load(self):
         if not exists("Radium.cfg"):
-            self.save(self)
+            self.save()
             return False
 
         self.recent_projects.clear()
